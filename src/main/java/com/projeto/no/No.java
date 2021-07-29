@@ -1,28 +1,30 @@
 package com.projeto.no;
 
-public class No {
+//T => tipo genérico
 
-    private String conteudo;
-    private No proximo;
+public class No<T> {
 
-    public No(String conteudo) {
+    private T conteudo;
+    private No<T> proximo;
+
+    public No(T conteudo) {
         this.conteudo = conteudo;
         this.proximo = null;
     }
 
-    public String getConteudo() {
+    public T getConteudo() {
         return conteudo;
     }
 
-    public void setConteudo(String conteudo) {
+    public void setConteudo(T conteudo) {
         this.conteudo = conteudo;
     }
 
-    public No getProximo() {
+    public No<T> getProximo() {
         return proximo;
     }
 
-    public void setProximo(No proximo) {
+    public void setProximo(No<T> proximo) {
         this.proximo = proximo;
     }
 
