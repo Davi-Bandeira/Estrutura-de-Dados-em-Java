@@ -31,4 +31,23 @@ public class Pilha {
 
         return this.refNoEntradaPilha == null;
     }
+
+    @Override
+    public String toString() {
+        String stringRetorno = "------------\n";
+        stringRetorno += "    Pilha\n";
+        stringRetorno += "------------\n";
+        No noAuxiliar = this.refNoEntradaPilha;
+
+        while (true) {
+            if (noAuxiliar != null) {
+                stringRetorno += "[No{dado=" + noAuxiliar.getDado() + "}]\n";
+                noAuxiliar = noAuxiliar.getRefNo();
+            } else {
+                break;
+            }
+        }
+        stringRetorno += "============\n";
+        return stringRetorno;
+    }
 }
