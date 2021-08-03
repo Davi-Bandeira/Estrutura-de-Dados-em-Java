@@ -8,12 +8,35 @@ public class Fila {
         this.refNoEntradaFila = null;
     }
 
-    public void enqueue(No novoNo) { // enfileirar
+//    public void enqueue(No novoNo) { // enfileirar
+//        novoNo.setRefNo(this.refNoEntradaFila);
+//        this.refNoEntradaFila = novoNo;
+//    }
+
+    //Refatorando metodo
+    public void enqueue(Object obj) { // enfileirar
+        No novoNo = new No(obj);
         novoNo.setRefNo(this.refNoEntradaFila);
         this.refNoEntradaFila = novoNo;
     }
 
-    public No first() {
+//    public No first() {
+//        if (!this.isEmpty()) {
+//            No primeiroNo = refNoEntradaFila;
+//            while (true) {
+//                if (primeiroNo.getRefNo() != null) {
+//                    primeiroNo = primeiroNo.getRefNo();
+//                } else {
+//                    break;
+//                }
+//            }
+//            return primeiroNo;
+//        }
+//        return null;
+//    }
+
+    //Refatorando metodo
+    public Object first() {
         if (!this.isEmpty()) {
             No primeiroNo = refNoEntradaFila;
             while (true) {
@@ -23,28 +46,51 @@ public class Fila {
                     break;
                 }
             }
-            return primeiroNo;
+            return primeiroNo.getObject();
         }
         return null;
     }
 
-    public No dequeue() { //desenfileirar
-        if (!this.isEmpty()) {
-            No primeiroNo = refNoEntradaFila;
-            No noAuxiliar = refNoEntradaFila;
-            while (true) {
-                if (primeiroNo.getRefNo() != null) {
-                    noAuxiliar = primeiroNo;
-                    primeiroNo = primeiroNo.getRefNo();
-                } else {
-                    noAuxiliar.setRefNo(null);
-                    break;
-                }
+//    public No dequeue() { //desenfileirar
+//        if (!this.isEmpty()) {
+//            No primeiroNo = refNoEntradaFila;
+//            No noAuxiliar = refNoEntradaFila;
+//            while (true) {
+//                if (primeiroNo.getRefNo() != null) {
+//                    noAuxiliar = primeiroNo;
+//                    primeiroNo = primeiroNo.getRefNo();
+//                } else {
+//                    noAuxiliar.setRefNo(null);
+//                    break;
+//                }
+//            }
+//            return primeiroNo;
+//        }
+//        return null;
+//    }
+//
+//    public boolean isEmpty() {
+//        return this.refNoEntradaFila == null;
+//    }
+
+    //Refatorando método
+public Object dequeue() { //desenfileirar
+    if (!this.isEmpty()) {
+        No primeiroNo = refNoEntradaFila;
+        No noAuxiliar = refNoEntradaFila;
+        while (true) {
+            if (primeiroNo.getRefNo() != null) {
+                noAuxiliar = primeiroNo;
+                primeiroNo = primeiroNo.getRefNo();
+            } else {
+                noAuxiliar.setRefNo(null);
+                break;
             }
-            return primeiroNo;
         }
-        return null;
+        return primeiroNo.getObject();
     }
+    return null;
+}
 
     public boolean isEmpty() {
         return this.refNoEntradaFila == null;
