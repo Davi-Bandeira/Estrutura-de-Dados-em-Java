@@ -1,8 +1,8 @@
 package com.projeto.Fila;
 
-public class Fila {
+public class Fila<T> {
 
-    private No refNoEntradaFila;
+    private No<T> refNoEntradaFila;
 
     public Fila() {
         this.refNoEntradaFila = null;
@@ -14,8 +14,8 @@ public class Fila {
 //    }
 
     //Refatorando metodo
-    public void enqueue(Object obj) { // enfileirar
-        No novoNo = new No(obj);
+    public void enqueue(T object) { // enfileirar
+        No novoNo = new No(object);
         novoNo.setRefNo(this.refNoEntradaFila);
         this.refNoEntradaFila = novoNo;
     }
@@ -36,7 +36,7 @@ public class Fila {
 //    }
 
     //Refatorando metodo
-    public Object first() {
+    public T first() {
         if (!this.isEmpty()) {
             No primeiroNo = refNoEntradaFila;
             while (true) {
@@ -46,7 +46,7 @@ public class Fila {
                     break;
                 }
             }
-            return primeiroNo.getObject();
+            return (T) primeiroNo.getObject();
         }
         return null;
     }
@@ -74,7 +74,7 @@ public class Fila {
 //    }
 
     //Refatorando método
-public Object dequeue() { //desenfileirar
+public T dequeue() { //desenfileirar
     if (!this.isEmpty()) {
         No primeiroNo = refNoEntradaFila;
         No noAuxiliar = refNoEntradaFila;
@@ -87,7 +87,7 @@ public Object dequeue() { //desenfileirar
                 break;
             }
         }
-        return primeiroNo.getObject();
+        return (T) primeiroNo.getObject();
     }
     return null;
 }

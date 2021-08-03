@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Fila minhaFila = new Fila();
+        Fila<String> minhaFila = new Fila<>();
 
         minhaFila.enqueue("Primeiro");
         minhaFila.enqueue("Segundo");
@@ -16,7 +16,7 @@ public class Main {
         System.out.println(minhaFila.dequeue());
         System.out.println(minhaFila);
 
-        minhaFila.enqueue(new No("Ultimo"));
+        minhaFila.enqueue("Ultimo");
         System.out.println(minhaFila);
 
         System.out.println(minhaFila.first());
